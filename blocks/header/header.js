@@ -116,9 +116,9 @@ export default async function decorate(block) {
 
   // tools section - search bar and account/cart
   const navTools = nav.querySelector('.nav-tools');
-  
+
   const newSearchInput = document.createElement('input')
-  newSearchInput.classList.add('search-bar')
+  newSearchInput.classList.add('searchbar-input')
   const navSearchWrapper = navTools.querySelector('.icon-search');
   if (navSearchWrapper) {
     navSearchWrapper.append(newSearchInput)
@@ -143,7 +143,7 @@ export default async function decorate(block) {
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
-      <span class="nav-hamburger-icon"></span>
+      <span class="nav-hamburger-icon"></span><span class="hamburger-text">Shop By Flower</span>
     </button>`;
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
   nav.prepend(hamburger);
