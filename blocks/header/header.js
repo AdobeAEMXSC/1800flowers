@@ -112,7 +112,18 @@ export default async function decorate(block) {
   if (brandLink) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
+  };
+
+  // tools section - search bar and account/cart
+  const navTools = nav.querySelector('.nav-tools');
+  
+  const newSearchInput = document.createElement('input')
+  newSearchInput.classList.add('search-bar')
+  const navSearchWrapper = navTools.querySelector('.icon-search');
+  if (navSearchWrapper) {
+    navSearchWrapper.append(newSearchInput)
   }
+
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
