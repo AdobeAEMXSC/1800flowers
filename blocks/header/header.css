@@ -168,7 +168,6 @@ header .nav-brand {
   top: 0;
   left: 0;
   width: 100%;
-  border: solid 2px orange;
 }
 
 /* top nav content wrapper and child container resets */
@@ -179,7 +178,6 @@ header .nav-brand .dark-band-content-wrapper {
 }
 
 header .nav-brand .dark-band-content {
-  border: solid 2px pink;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   display: flex;
@@ -187,14 +185,12 @@ header .nav-brand .dark-band-content {
   justify-content: space-between;
 }
 
-header .nav-brand .dark-band-content-wrapper .dark-band-content .socials-wrapper,
-header .nav-brand .dark-band-content-wrapper .dark-band-content .default-content-wrapper {
-  border: solid 2px lime;
+header .nav-brand .dark-band-content-wrapper .dark-band-content > div {
   margin: 0;
 }
 
 /* top nav left */
-header .nav-brand .default-content-wrapper {
+header .nav-brand .dark-band-content-wrapper .dark-band-content > div:first-of-type div {
   text-transform: uppercase;
   letter-spacing: -0.015rem;
 }
@@ -216,29 +212,34 @@ header .nav-brand ul li:hover {
 }
 
 /* top nav right (social media wrapper) */
-header .nav-brand .dark-band-content-wrapper .dark-band-content .socials-wrapper .socials {
+header .nav-brand .dark-band-content-wrapper .dark-band-content div:nth-of-type(2) div {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   text-transform: uppercase;
   letter-spacing: -0.015rem;
 }
 
-header .nav-brand .socials > div:hover {
+header .nav-brand .dark-band-content-wrapper .dark-band-content div:nth-of-type(2) div p:hover {
+
   cursor: pointer;
 }
 
-header .nav-brand .socials > div:first-of-type {
+header .nav-brand .dark-band-content div:nth-of-type(2) div p:first-of-type {
   margin-right: 10px;
 }
 
-header .nav-brand .socials > div:nth-of-type(2) {
+header .nav-brand .dark-band-content div:nth-of-type(2) div p:nth-of-type(2) {
   margin-right: 50px;
 }
 
-header .nav-brand .socials > div:nth-of-type(2) > div > span > img {
-  width: 30px;
-  height: 30px;
+/* fix size for facebook icon */
+header .nav-brand .dark-band-content div:nth-of-type(2) div p:first-of-type span img {
+  width: 22px;
+  height: 22px;
 }
+
+
 
 /* header nav .nav-brand img {
   width: 200px;
