@@ -19,6 +19,32 @@
   display: block;
 }
 
+.columns h2 {
+  font-weight: 200;
+  font-size: var(--heading-font-size-s);
+}
+
+.columns h4 {
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  font-size: var(--body-font-size-xxs);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.columns p {
+  font-size: var(--heading-font-size-xxs);
+  line-height: 1.2rem;
+}
+
+.columns p.button-container .button {
+  background-color: #000435;
+  text-transform: uppercase;
+  font-size: var(--body-font-size-xxs);
+  border-radius: 5px;
+  padding: 0.35rem 2.2rem;
+}
+
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
