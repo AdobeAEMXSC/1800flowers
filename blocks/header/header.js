@@ -116,7 +116,6 @@ export default async function decorate(block) {
 
   // tools section - search bar and account/cart
   const navTools = nav.querySelector('.nav-tools');
-
   const newSearchInput = document.createElement('input')
   newSearchInput.classList.add('searchbar-input')
   const navSearchWrapper = navTools.querySelector('.icon-search');

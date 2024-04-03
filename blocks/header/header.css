@@ -1,6 +1,5 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -8,10 +7,11 @@ header .nav-wrapper {
 
 header nav {
   box-sizing: border-box;
+  background-color: var(--background-color);
   display: grid;
   grid-template:
-    'brand brand brand' var(--nav-height)
-    'tools tools tools' var(--nav-height)
+    'brand brand brand' var(--nav-section-height)
+    'tools tools tools' var(--nav-section-height)
     'hamburger sections sections' 1fr / auto 1fr auto;
   /* gap: 0 2em; */
   margin: auto;
@@ -23,15 +23,17 @@ header nav {
 
 header nav[aria-expanded="true"] {
   grid-template:
-    'brand brand brand' var(--nav-height)
-    'tools tools tools' var(--nav-height)
+    'brand brand brand' var(--nav-section-height)
+    'tools tools tools' var(--nav-section-height)
     'hamburger sections sections' 1fr / auto 1fr auto;
   overflow-y: auto;
   min-height: 100vh;
 }
 
 @media (width >= 600px) {
-  header nav {
+  header nav,
+  header .nav-brand .dark-band-content
+   {
     padding: 0 2rem;
   }
 }
@@ -58,7 +60,7 @@ header nav a:any-link {
   color: currentcolor;
 }
 
-/* hamburger */
+/* hamburger button */
 header nav .nav-hamburger {
   grid-area: hamburger;
   height: 22px;
@@ -153,33 +155,95 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   }
 } */
 
-/* brand */
+/* brand (content in dark band, top of nav) */
 header .nav-brand {
   grid-area: brand;
   /* flex-basis: 128px; */
-  display: flex;
-  justify-content: space-between;
-  font-size: var(--body-font-size-s);
+  font-size: 14px;
   font-weight: 500;
   line-height: 1;
   color: var(--background-color);
   background-color: var(--text-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: solid 2px orange;
+}
+
+/* top nav content wrapper and child container resets */
+header .nav-brand .dark-band-content-wrapper {
+  margin: auto;
+  max-width: 1264px;
+  width: 100%;
+}
+
+header .nav-brand .dark-band-content {
+  border: solid 2px pink;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .nav-brand .dark-band-content-wrapper .dark-band-content .socials-wrapper,
+header .nav-brand .dark-band-content-wrapper .dark-band-content .default-content-wrapper {
+  border: solid 2px lime;
+  margin: 0;
+}
+
+/* top nav left */
+header .nav-brand .default-content-wrapper {
+  text-transform: uppercase;
+  letter-spacing: -0.015rem;
 }
 
 header .nav-brand ul {
   display: flex;
   justify-content: space-between;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 header .nav-brand ul li {
-  margin: 0 20px 0 0;
+  margin: 0 36px 0 0;
 }
 
-header nav .nav-brand img {
-  /* width: 200px; */
-  height: auto;
+header .nav-brand ul li:hover {
+  cursor: pointer;
 }
+
+/* top nav right (social media wrapper) */
+header .nav-brand .dark-band-content-wrapper .dark-band-content .socials-wrapper .socials {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: -0.015rem;
+}
+
+header .nav-brand .socials > div:hover {
+  cursor: pointer;
+}
+
+header .nav-brand .socials > div:first-of-type {
+  margin-right: 10px;
+}
+
+header .nav-brand .socials > div:nth-of-type(2) {
+  margin-right: 50px;
+}
+
+header .nav-brand .socials > div:nth-of-type(2) > div > span > img {
+  width: 30px;
+  height: 30px;
+}
+
+/* header nav .nav-brand img {
+  width: 200px;
+  height: auto;
+} */
 
 /* sections */
 header nav .nav-sections {
@@ -323,6 +387,10 @@ header nav .nav-tools .default-content-wrapper > p > picture {
   display: block;
 }
 
+header nav .nav-tools .default-content-wrapper > p > picture:hover {
+  cursor: pointer;
+}
+
 header nav .nav-tools .default-content-wrapper > p > picture > img {
   width: 225px;
   height: auto;
@@ -392,6 +460,10 @@ header nav .nav-tools .searchbar-wrapper {
   letter-spacing: 0.015rem;
 }
 
+.order div:first-of-type em:hover {
+  cursor: pointer;
+}
+
 /* account & cart */
 .order > div:nth-of-type(2) > div > p,
 .order > div:nth-of-type(3) > div > p {
@@ -401,6 +473,15 @@ header nav .nav-tools .searchbar-wrapper {
   align-items: center;
   min-width: 65px;
   margin-left: 20px;
+}
+
+.order > div:nth-of-type(2) > div > p:hover,
+.order > div:nth-of-type(3) > div > p:hover {
+  cursor: pointer;
+}
+
+.order > div:nth-of-type(3) > div > p {
+  min-width: fit-content;
 }
 
 .order div:nth-of-type(2) > div > p > picture > img, 
