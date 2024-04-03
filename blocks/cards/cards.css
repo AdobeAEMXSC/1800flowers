@@ -70,14 +70,28 @@
   margin: 0;
 }
 
+/* variable cards */
+.variable-width-cards .cards ul li .cards-card-body{
+  text-align: center;
+}
+
+.variable-width-cards .cards ul li:nth-of-type(2) {
+  grid-column: span 2;
+}
+
+.variable-width-cards .cards ul li .cards-card-image {
+  height: 180px;
+}
+
+.variable-width-cards .cards ul li .cards-card-image img {
+  height: 180px;
+}
+
 
 /* small cards */
 
 
-/* variable cards */
-
 /* editorial cards */
-
 .editorial-cards:not(.product-cards) .cards > ul {
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 16px;
